@@ -12,7 +12,10 @@
 - Framer motion,
 - React,
 - react-social-icons,
-- react-simple-typewriter
+- react-simple-typewriter,
+- Hero-icons,
+- React-hook-form
+- Tailwind-scrollbar
 
 ## Getting Started
 
