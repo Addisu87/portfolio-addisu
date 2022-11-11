@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
-import MathMagician from '../assets/images/MathMagician.png';
+import { Project } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -29,21 +31,32 @@ function Projects({}: Props) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
-              className=""
             >
-              <Image src={MathMagician} alt="" />
+              <Image src={urlFor(project?.image).url()} alt="" />
             </motion.div>
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
-                <span className="underline decoration-[#F&AB0A]/50">
+                <span className="underline decoration-[#F7AB0A]/50">
                   Project {i + 1} of {projects.length}
                 </span>
+                {''}
+                {project?.title}
               </h4>
 
+              <div className="flex items-center space-x-2 justify-center">
+                {project?.technologies.map((technology) => (
+                  <Image
+                    className="h-10 w-10"
+                    key={technology._id}
+                    src={urlFor(technology.image).url()}
+                    alt=""
+                  />
+                ))}
+              </div>
+
               <p className="text-lg text-center md:text-left">
-                In this project, I have implemented a single-page web
-                application that displays message, quote and calculator app.
+                {project?.summary}
               </p>
             </div>
           </div>

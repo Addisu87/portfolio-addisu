@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import DTULogo from '../assets/images/DTULogo.png';
-import ReactIcon from '../assets/images/ReactIcon.png';
+import { Experience } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {
+  experience: Experience;
+};
 
-export default function ExperienceCard({}: Props) {
+export default function ExperienceCard({ experience }: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.div
@@ -22,8 +24,8 @@ export default function ExperienceCard({}: Props) {
       >
         <Image
           className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-          src={DTULogo}
-          alt="DTU_Logo"
+          src={urlFor(experience?.companyImage).url()}
+          alt=""
         />
       </motion.div>
 
@@ -31,38 +33,26 @@ export default function ExperienceCard({}: Props) {
         <h4 className="px-0 md:px-10">Lecture of Physics</h4>
         <p className="font-bold text-2xl mt-1">PAPAFAM</p>
         <div className="flex space-x-2 my-2">
-          <Image
-            className="rounded-full"
-            src={ReactIcon}
-            alt="react-icon"
-            width={50}
-            height={50}
-          />
-          <Image
-            className="rounded-full"
-            src={ReactIcon}
-            alt="react-icon"
-            width={50}
-            height={50}
-          />
-          <Image
-            className="rounded-full"
-            src={ReactIcon}
-            alt="react-icon"
-            width={50}
-            height={50}
-          />
+          {experience.technologies.map((technology) => (
+            <Image
+              key={technology._id}
+              className="h-10 w-10 rounded-full"
+              src={urlFor(technology.image).url()}
+              alt=""
+            />
+          ))}
         </div>
         <p className="uppercase py-5 text-gray-300">
-          Started Work... -Ended...
+          {new Date(experience.dateStarted).toDateString()} - {''}
+          {experience.isCurrentlyWorkingHere
+            ? 'Present'
+            : new Date(experience.dateEnded).toDateString()}
         </p>
 
-        <ul className="list-disc space-y-4 ml-5 text-lg">
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
+        <ul className="list-disc space-y-4 ml-5 text-lg max-h-96 pr-5 overflow-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80">
+          {experience.points.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>

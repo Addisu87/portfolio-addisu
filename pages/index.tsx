@@ -9,13 +9,13 @@ import Projects from '../components/Projects';
 import ContactMe from '../components/ContactMe';
 import Image from 'next/image';
 import Link from 'next/link';
-import ProfilePic from '../assets/images/Profile.jpg';
 import { Experience, PageInfo, Project, Skill, Social } from '../typings';
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchProjects } from '../utils/fetchProjects';
 import { fetchSocial } from '../utils/fetchSocials';
+import { ArrowUpCircleIcon } from '@heroicons/react/24/solid';
 
 type Props = {
   pageInfo: PageInfo;
@@ -39,19 +39,19 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
       </section>
 
       <section id="about" className="snap-center">
-        <About />
+        <About pageInfo={pageInfo} />
       </section>
 
       <section id="experience" className="snap-center">
-        <WorkExperience />
+        <WorkExperience experiences={experiences} />
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section id="contact" className="snap-start">
@@ -61,11 +61,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
       <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
-            <Image
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src={ProfilePic}
-              alt=""
-            />
+            <ArrowUpCircleIcon className="text-[#F7AB0A] h-10 w-10 rounded-full  animate-pulse filter grayscale hover:grayscale-0 cursor-pointer" />
           </div>
         </footer>
       </Link>
