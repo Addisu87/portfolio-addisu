@@ -16,7 +16,8 @@
 - Hero-icons,
 - React-hook-form,
 - Tailwind-scrollbar,
-- next-sanity
+- next-sanity,
+- Vercel CLI tooling
 
 
 ## Getting Started
