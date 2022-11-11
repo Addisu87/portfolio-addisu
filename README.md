@@ -41,6 +41,12 @@ npm run dev
 yarn run dev
 ```
 
+To start Sanity for the backend server
+
+- cd sanity
+- sanity start
+- sanity deploy
+
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Live Demo (if available)
