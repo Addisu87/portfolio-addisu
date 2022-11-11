@@ -7,7 +7,6 @@ import WorkExperience from '../components/WorkExperience';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import ContactMe from '../components/ContactMe';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Experience, PageInfo, Project, Skill, Social } from '../typings';
 import { fetchPageInfo } from '../utils/fetchPageInfo';
@@ -61,7 +60,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
       <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
-            <ArrowUpCircleIcon className="text-[#F7AB0A] h-10 w-10 rounded-full  animate-pulse filter grayscale hover:grayscale-0 cursor-pointer" />
+            <ArrowUpCircleIcon className="h-10 w-10 rounded-full animate-pulse filter grayscale hover:grayscale-0 cursor-pointer" />
           </div>
         </footer>
       </Link>
