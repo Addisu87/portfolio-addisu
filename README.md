@@ -14,8 +14,10 @@
 - react-social-icons,
 - react-simple-typewriter,
 - Hero-icons,
-- React-hook-form
-- Tailwind-scrollbar
+- React-hook-form,
+- Tailwind-scrollbar,
+- next-sanity
+
 
 ## Getting Started
 
