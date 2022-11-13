@@ -33,28 +33,22 @@ function About({ pageInfo }: Props) {
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full
         object-cover md:rounded-lg md:w-65 md:h-95 xl:w-[400px] xl:h-[500px]"
       >
-        {pageInfo?.ProfilePic && (
-          <Image
-            className="-mb-20 md:mb-0 flex-shrink-0 
+        <Image
+          className="-mb-20 md:mb-0 flex-shrink-0 
              rounded-full
           object-cover md:rounded-lg md:w-65 md:h-95 xl:w-[400px] xl:h-[500px] "
-            src={urlFor(pageInfo?.ProfilePic).url()}
-            alt=""
-            width={56}
-            height={56}
-          />
-        )}
+          src={urlFor(pageInfo?.profilePic).url()}
+          alt=""
+          width={400}
+          height={400}
+        />
       </motion.div>
       <div className="space-y-10 px-0 md:px-10">
         <h5 className="text-4xl font-semibold">
+          Here is a little {''}
           <span className="underline decoration-[#F7AB0A]/50">
-            Software Engineer | {''}
-          </span>
-          <span className="underline decoration-[#F7AB0A]/50">
-            {' '}
-            Full Stack Web Developer |{' '}
+            background
           </span>{' '}
-          <span className="underline decoration-[#F7AB0A]/50">Freelancer</span>
         </h5>
         <p className="text-base">{pageInfo?.backgroundInformation}</p>
       </div>

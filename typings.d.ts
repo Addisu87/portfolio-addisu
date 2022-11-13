@@ -22,7 +22,7 @@ export interface PageInfo extends SanityBody {
   heroImage: string;
   name: string;
   phoneNumber: string;
-  ProfilePic: Image;
+  profilePic: Image;
 }
 
 export interface Technology extends SanityBody {

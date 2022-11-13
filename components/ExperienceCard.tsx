@@ -38,7 +38,7 @@ export default function ExperienceCard({ experience }: Props) {
           {experience.technologies.map((technology) => (
             <Image
               key={technology._id}
-              className="h-10 w-10 rounded-full"
+              className="rounded-full"
               src={urlFor(technology.image).url()}
               alt=""
               width={10}
@@ -53,7 +53,10 @@ export default function ExperienceCard({ experience }: Props) {
             : new Date(experience.dateEnded).toDateString()}
         </p>
 
-        <ul className="list-disc space-y-4 ml-5 text-lg max-h-96 pr-5 overflow-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80">
+        <ul
+          className="list-disc space-y-4 ml-5 text-lg 
+         max-h-96 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80"
+        >
           {experience.points.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
