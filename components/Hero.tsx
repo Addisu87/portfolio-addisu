@@ -31,8 +31,8 @@ function Hero({ pageInfo }: Props) {
         className="relative rounded-full mx-auto object-cover"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""
-        width="32"
-        height="32"
+        width={32}
+        height={32}
       />
 
       <div className="z-20">

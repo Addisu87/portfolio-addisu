@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-// import ProfilePic from '../assets/images/Profile.jpg';
 import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
 
@@ -34,12 +33,17 @@ function About({ pageInfo }: Props) {
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full
         object-cover md:rounded-lg md:w-65 md:h-95 xl:w-[400px] xl:h-[500px]"
       >
-        <Image
-          className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full
+        {pageInfo?.ProfilePic && (
+          <Image
+            className="-mb-20 md:mb-0 flex-shrink-0 
+             rounded-full
           object-cover md:rounded-lg md:w-65 md:h-95 xl:w-[400px] xl:h-[500px] "
-          src={urlFor(pageInfo?.ProfilePic).url()}
-          alt="ProfilePic"
-        />
+            src={urlFor(pageInfo?.ProfilePic).url()}
+            alt=""
+            width={56}
+            height={56}
+          />
+        )}
       </motion.div>
       <div className="space-y-10 px-0 md:px-10">
         <h5 className="text-4xl font-semibold">

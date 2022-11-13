@@ -22,11 +22,15 @@ export default function ExperienceCard({ experience }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <Image
-          className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-          src={urlFor(experience?.companyImage).url()}
-          alt=""
-        />
+        {experience?.companyImage && (
+          <Image
+            className="rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+            src={urlFor(experience?.companyImage).url()}
+            alt=""
+            width={200}
+            height={200}
+          />
+        )}
       </motion.div>
 
       <div>
@@ -39,6 +43,8 @@ export default function ExperienceCard({ experience }: Props) {
               className="h-10 w-10 rounded-full"
               src={urlFor(technology.image).url()}
               alt=""
+              width={10}
+              height={10}
             />
           ))}
         </div>
