@@ -11,7 +11,7 @@ type Props = {
 };
 
 function Hero({ pageInfo }: Props) {
-  const [text, count] = useTypewriter({
+  const [text] = useTypewriter({
     words: [
       `Hi, my name is ${pageInfo?.name}`,
       'I am a Full Stack Developer',
@@ -31,8 +31,8 @@ function Hero({ pageInfo }: Props) {
         className="relative rounded-full mx-auto object-cover"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""
-        width={32}
-        height={32}
+        width={52}
+        height={52}
       />
 
       <div className="z-20">

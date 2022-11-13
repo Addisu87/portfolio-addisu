@@ -17,8 +17,6 @@ export default function Header({ socials }: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row items-center"
       >
-        {/* Social icons */}
-
         {socials.map((social) => (
           <SocialIcon
             key={social._id}

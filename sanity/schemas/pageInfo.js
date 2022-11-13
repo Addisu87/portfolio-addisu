@@ -35,7 +35,12 @@ export default {
       type: 'string'
     },
     {
-      name: 'string',
+      name: 'email',
+      title: 'Email',
+      type: 'string'
+    },
+    {
+      name: 'address',
       title: 'Address',
       type: 'string'
     },
