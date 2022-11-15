@@ -23,7 +23,7 @@ export default function ExperienceCard({ experience }: Props) {
         viewport={{ once: true }}
       >
         <Image
-          className="rounded-full xl:w-[100px] xl:h-[100px] object-cover object-center"
+          className="w-32 h-32 rounded-full xl:w-[100px] xl:h-[100px] object-cover object-center"
           src={urlFor(experience?.companyImage).url()}
           alt=""
           width={100}
@@ -31,14 +31,14 @@ export default function ExperienceCard({ experience }: Props) {
         />
       </motion.div>
 
-      <div>
-        <h4 className="px-0 md:px-10">{experience?.jobTitle}</h4>
+      <div className="px-0 md:px-10">
+        <h4 className="text-4xl font-light">{experience?.jobTitle}</h4>
         <p className="font-bold text-2xl mt-1">{experience?.company}</p>
         <div className="flex space-x-2 my-2">
           {experience.technologies.map((technology) => (
             <Image
               key={technology._id}
-              className="rounded-full"
+              className="w-10 h-10 rounded-full"
               src={urlFor(technology.image).url()}
               alt=""
               width={20}
@@ -46,6 +46,7 @@ export default function ExperienceCard({ experience }: Props) {
             />
           ))}
         </div>
+
         <p className="uppercase py-5 text-gray-300">
           {new Date(experience.dateStarted).toDateString()} - {''}
           {experience.isCurrentlyWorkingHere
@@ -55,7 +56,7 @@ export default function ExperienceCard({ experience }: Props) {
 
         <ul
           className="list-disc space-y-4 ml-5 text-lg 
-         max-h-96 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80"
+         max-h-80 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80"
         >
           {experience.points.map((point, i) => (
             <li key={i}>{point}</li>

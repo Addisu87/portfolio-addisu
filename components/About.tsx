@@ -39,8 +39,8 @@ function About({ pageInfo }: Props) {
           object-cover md:rounded-lg md:w-65 md:h-85 xl:w-[400px] xl:h-[500px]"
           src={urlFor(pageInfo?.profilePic).url()}
           alt=""
-          width={100}
-          height={100}
+          width={150}
+          height={150}
         />
       </motion.div>
       <div className="space-y-7 px-0 md:px-10">
