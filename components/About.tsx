@@ -44,7 +44,7 @@ function About({ pageInfo }: Props) {
         />
       </motion.div>
       <div className="space-y-7 px-0 md:px-10">
-        <h5 className="text-3xl font-semibold">
+        <h5 className="text-2xl font-light">
           Here is a little {''}
           <span className="underline decoration-[#F7AB0A]/50">
             background
