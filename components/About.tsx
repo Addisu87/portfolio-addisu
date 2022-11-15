@@ -34,17 +34,17 @@ function About({ pageInfo }: Props) {
         object-cover md:rounded-lg md:w-65 md:h-95 xl:w-[400px] xl:h-[500px]"
       >
         <Image
-          className="-mb-20 md:mb-0 flex-shrink-0 
+          className="w-56 h-56 -mb-20 md:mb-0 flex-shrink-0 
              rounded-full
-          object-cover md:rounded-lg md:w-65 md:h-85 xl:w-[400px] xl:h-[500px] "
+          object-cover md:rounded-lg md:w-65 md:h-85 xl:w-[400px] xl:h-[500px]"
           src={urlFor(pageInfo?.profilePic).url()}
           alt=""
-          width={300}
-          height={300}
+          width={100}
+          height={100}
         />
       </motion.div>
-      <div className="space-y-10 px-0 md:px-10">
-        <h5 className="text-4xl font-semibold">
+      <div className="space-y-7 px-0 md:px-10">
+        <h5 className="text-3xl font-semibold">
           Here is a little {''}
           <span className="underline decoration-[#F7AB0A]/50">
             background

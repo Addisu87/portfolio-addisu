@@ -23,17 +23,17 @@ export default function ExperienceCard({ experience }: Props) {
         viewport={{ once: true }}
       >
         <Image
-          className="rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+          className="rounded-full xl:w-[100px] xl:h-[100px] object-cover object-center"
           src={urlFor(experience?.companyImage).url()}
           alt=""
-          width={200}
-          height={200}
+          width={100}
+          height={100}
         />
       </motion.div>
 
       <div>
-        <h4 className="px-0 md:px-10">Lecture of Physics</h4>
-        <p className="font-bold text-2xl mt-1">PAPAFAM</p>
+        <h4 className="px-0 md:px-10">{experience?.jobTitle}</h4>
+        <p className="font-bold text-2xl mt-1">{experience?.company}</p>
         <div className="flex space-x-2 my-2">
           {experience.technologies.map((technology) => (
             <Image
@@ -41,8 +41,8 @@ export default function ExperienceCard({ experience }: Props) {
               className="rounded-full"
               src={urlFor(technology.image).url()}
               alt=""
-              width={10}
-              height={10}
+              width={20}
+              height={20}
             />
           ))}
         </div>
