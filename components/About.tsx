@@ -36,11 +36,11 @@ function About({ pageInfo }: Props) {
         <Image
           className="-mb-20 md:mb-0 flex-shrink-0 
              rounded-full
-          object-cover md:rounded-lg md:w-65 md:h-95 xl:w-[400px] xl:h-[500px] "
+          object-cover md:rounded-lg md:w-65 md:h-85 xl:w-[400px] xl:h-[500px] "
           src={urlFor(pageInfo?.profilePic).url()}
           alt=""
-          width={400}
-          height={400}
+          width={300}
+          height={300}
         />
       </motion.div>
       <div className="space-y-10 px-0 md:px-10">

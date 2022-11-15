@@ -31,8 +31,8 @@ function Hero({ pageInfo }: Props) {
         className="relative rounded-full mx-auto object-cover"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""
-        width={52}
-        height={52}
+        width={32}
+        height={32}
       />
 
       <div className="z-20">
@@ -40,7 +40,7 @@ function Hero({ pageInfo }: Props) {
           {pageInfo?.role}
         </h2>
 
-        <h1 className="text-5xl lg:text-4xl font-semibold px-10">
+        <h1 className="text-4xl lg:text-5xl font-semibold px-10">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
