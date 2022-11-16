@@ -43,6 +43,7 @@ function About({ pageInfo }: Props) {
           height={150}
         />
       </motion.div>
+
       <div className="space-y-7 px-0 md:px-10">
         <h5 className="text-2xl font-light">
           Here is a little {''}
