@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import BackgroundCircles from './BackgroundCircles';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
@@ -13,7 +13,7 @@ type Props = {
 function Hero({ pageInfo }: Props) {
   const [text] = useTypewriter({
     words: [
-      `Hi, my name is ${pageInfo?.name}`,
+      `Hello, my name is ${pageInfo?.name}`,
       'I am a Full Stack Developer',
       'I am a React/Redux Developer',
       'I am an Enthusiastic Developer',

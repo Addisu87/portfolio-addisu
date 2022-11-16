@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
 
@@ -30,27 +30,24 @@ function About({ pageInfo }: Props) {
         }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full
-        object-cover md:rounded-lg md:w-65 md:h-95 xl:w-[400px] xl:h-[500px]"
+        className="w-56 h-56 -mb-20 md:mb-0 flex-shrink-0 md:w-65 md:h-95 xl:w-[500px] xl:h-[600px] mt-[120px]"
       >
         <Image
-          className="w-56 h-56 -mb-20 md:mb-0 flex-shrink-0 
-             rounded-full
-          object-cover md:rounded-lg md:w-65 md:h-85 xl:w-[400px] xl:h-[500px]"
+          className="rounded-full object-cover md:rounded-lg"
           src={urlFor(pageInfo?.profilePic).url()}
           alt=""
-          width={150}
-          height={150}
+          width={450}
+          height={450}
         />
       </motion.div>
 
-      <div className="space-y-7 px-0 md:px-10">
-        <h5 className="text-2xl font-light">
+      <div className="space-y-10 px-0 md:px-10">
+        <h4 className="text-3xl font-light">
           Here is a little {''}
           <span className="underline decoration-[#F7AB0A]/50">
             background
           </span>{' '}
-        </h5>
+        </h4>
         <p className="text-base">{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>

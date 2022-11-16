@@ -24,7 +24,7 @@ function ContactMe({}: Props) {
       </h3>
 
       <div className="flex flex-col space-y-5">
-        <h4 className="text-3xl font-semibold text-center">
+        <h4 className="text-3xl font-light text-center">
           I have got just what you need.{''}
           <span className="decoration-[#F7AB0A]/50 underline">
             Let us Talk.
@@ -34,7 +34,7 @@ function ContactMe({}: Props) {
         <div className="space-y-5">
           <div className="flex items-center space-x-5 justify-center">
             <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+251912912144</p>
+            <p className="text-2xl">+251-912912144</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
@@ -44,7 +44,7 @@ function ContactMe({}: Props) {
 
           <div className="flex items-center space-x-5 justify-center">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Gondar</p>
+            <p className="text-2xl">Ethiopia</p>
           </div>
         </div>
 

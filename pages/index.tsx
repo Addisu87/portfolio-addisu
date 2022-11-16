@@ -14,7 +14,7 @@ import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchProjects } from '../utils/fetchProjects';
 import { fetchSocial } from '../utils/fetchSocials';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { urlFor } from '../sanity';
 
 type Props = {
