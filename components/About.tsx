@@ -42,13 +42,13 @@ function About({ pageInfo }: Props) {
       </motion.div>
 
       <div className="space-y-10 px-0 md:px-10">
-        <h4 className="text-3xl font-light">
+        <h4 className="text-3xl font-bold">
           Here is a little {''}
           <span className="underline decoration-[#F7AB0A]/50">
             background
           </span>{' '}
         </h4>
-        <p className="text-base">{pageInfo?.backgroundInformation}</p>
+        <p className="text-2xl font-light">{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   );
