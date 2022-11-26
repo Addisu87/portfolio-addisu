@@ -6,8 +6,7 @@ import { Experience } from '../typings';
 type Props = {
   experiences: Experience[];
 };
-
-function WorkExperience({ experiences }: Props) {
+const WorkExperience = ({ experiences }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -26,6 +25,6 @@ function WorkExperience({ experiences }: Props) {
       </div>
     </motion.div>
   );
-}
+};
 
 export default WorkExperience;

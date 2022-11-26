@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 type Props = {};
 
-function BackgroundCircles({}: Props) {
+const BackgroundCircles = ({}: Props) => {
   return (
     <motion.div
       className="relative flex justify-center items-center"
@@ -22,6 +22,6 @@ function BackgroundCircles({}: Props) {
       <div className="rounded-full border border-[#333333] absolute h-[800px] w-[800px] mt-52" />
     </motion.div>
   );
-}
+};
 
 export default BackgroundCircles;

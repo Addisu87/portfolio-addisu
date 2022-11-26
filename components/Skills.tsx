@@ -6,8 +6,7 @@ import { Skill as SkillType } from '../typings';
 type Props = {
   skills: SkillType[];
 };
-
-function Skills({ skills }: Props) {
+const Skills = ({ skills }: Props) => {
   return (
     <motion.div className="flex relative flex-col text-center md:text-left xl:flex-row mx-w-[200px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
@@ -29,6 +28,6 @@ function Skills({ skills }: Props) {
       </div>
     </motion.div>
   );
-}
+};
 
 export default Skills;

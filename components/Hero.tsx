@@ -10,7 +10,7 @@ type Props = {
   pageInfo: PageInfo;
 };
 
-function Hero({ pageInfo }: Props) {
+const Hero = ({ pageInfo }: Props) => {
   const [text] = useTypewriter({
     words: [
       `Hello, my name is ${pageInfo?.name}`,
@@ -62,6 +62,6 @@ function Hero({ pageInfo }: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default Hero;

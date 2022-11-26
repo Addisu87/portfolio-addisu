@@ -9,7 +9,7 @@ type Props = {
   directionLeft?: boolean;
 };
 
-function Skill({ skill, directionLeft }: Props) {
+const Skill = ({ skill, directionLeft }: Props) => {
   return (
     <motion.div
       initial={{
@@ -37,6 +37,6 @@ function Skill({ skill, directionLeft }: Props) {
       </div>
     </motion.div>
   );
-}
+};
 
 export default Skill;
