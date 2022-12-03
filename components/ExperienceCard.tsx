@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/legacy/image';
 import { Experience } from '../typings';
 import { urlFor } from '../sanity';
 
@@ -17,27 +16,23 @@ const ExperienceCard = ({ experience }: Props) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <Image
-          className="w-22 h-22 rounded-full xl:w-[100px] xl:h-[100px] object-cover object-center"
+        <motion.img
+          className="w-20 h-20 rounded-full xl:w-[100px] xl:h-[100px] object-cover object-center"
           src={urlFor(experience?.companyImage).url()}
           alt=""
-          width={100}
-          height={100}
         />
       </motion.div>
 
       <div className="px-2 md:px-10">
         <h4 className="text-2xl font-light">{experience?.jobTitle}</h4>
         <p className="font-semibold text-xl mt-1">{experience?.company}</p>
-        <div className="flex space-x-2 my-2">
+        <div className="flex items-center justify-center space-x-2 my-2">
           {experience.technologies.map((technology) => (
-            <Image
+            <motion.img
               key={technology._id}
               className="w-10 h-10 rounded-full"
               src={urlFor(technology.image).url()}
               alt=""
-              width={30}
-              height={30}
             />
           ))}
         </div>

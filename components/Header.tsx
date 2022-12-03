@@ -3,7 +3,6 @@ import { SocialIcon } from 'react-social-icons';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Social } from '../typings';
-import { MapPinIcon } from '@heroicons/react/24/solid';
 
 type Props = {
   socials: Social[];
@@ -35,15 +34,8 @@ const Header = ({ socials }: Props) => {
           transition={{ duration: 1.5 }}
           className="flex flex-row items-center text-gray-300 cursor-pointer"
         >
-          <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
-              Resume
-            </p>
-          </div>
-
           <SocialIcon
-            className="cursor-pointer"
+            className="cursor-pointer animate-pulse"
             network="email"
             fgColor="gray"
             bgColor="transparent"
