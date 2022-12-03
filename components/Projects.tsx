@@ -1,4 +1,3 @@
-import Image from 'next/legacy/image';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '../typings';
@@ -34,24 +33,23 @@ const Projects = ({ projects }: Props) => {
               src={urlFor(project?.image).url()}
               alt=""
               className="w-96 h-46"
-            ></motion.img>
+            />
 
             <div className="space-y-5 px-0 md:px-10 max-w-6xl">
               <h5 className="text-xl font-light text-center">
+                Project {i + 1} of {projects.length} {''}
                 <span className="underline decoration-[#F7AB0A]/50">
-                  Project {i + 1} of {projects.length} {''}
+                  {project?.title}
                 </span>
-                {project?.title}
               </h5>
 
               <div className="flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
-                  <Image
+                  <motion.img
                     key={technology._id}
                     src={urlFor(technology.image).url()}
                     alt=""
-                    width={40}
-                    height={40}
+                    className="w-10 h-10 rounded-full"
                   />
                 ))}
               </div>

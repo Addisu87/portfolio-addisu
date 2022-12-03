@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/legacy/image';
 import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
 
