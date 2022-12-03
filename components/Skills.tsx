@@ -8,7 +8,7 @@ type Props = {
 };
 const Skills = ({ skills }: Props) => {
   return (
-    <motion.div className="flex relative flex-col text-center md:text-left xl:flex-row mx-w-[200px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center">
+    <div className="flex relative flex-col text-center md:text-left xl:flex-row mx-w-[200px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Skills
       </h3>
@@ -17,7 +17,7 @@ const Skills = ({ skills }: Props) => {
         Hover over a skill for current proficiency
       </h3>
 
-      <div className="grid grid-cols-4 gap-5 mt-[80px]">
+      <motion.div className="grid grid-cols-4 gap-4 mt-[80px]">
         {skills?.slice(0, skills.length / 2).map((skill) => (
           <Skill key={skill._id} skill={skill} />
         ))}
@@ -25,8 +25,8 @@ const Skills = ({ skills }: Props) => {
         {skills?.slice(skills.length / 2, skills.length).map((skill) => (
           <Skill key={skill._id} skill={skill} directionLeft />
         ))}
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
