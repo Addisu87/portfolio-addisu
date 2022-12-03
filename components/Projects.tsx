@@ -24,29 +24,25 @@ const Projects = ({ projects }: Props) => {
         {projects.map((project, i) => (
           <div
             key={project._id}
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
+            className="w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-10 md:p-34"
           >
-            <motion.div
+            <motion.img
               initial={{ y: -300, opacity: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
-            >
-              <Image
-                src={urlFor(project?.image).url()}
-                alt=""
-                width={500}
-                height={250}
-              />
-            </motion.div>
+              src={urlFor(project?.image).url()}
+              alt=""
+              className="w-96 h-46"
+            ></motion.img>
 
             <div className="space-y-5 px-0 md:px-10 max-w-6xl">
-              <h4 className="text-2xl font-light text-center">
+              <h5 className="text-xl font-light text-center">
                 <span className="underline decoration-[#F7AB0A]/50">
                   Project {i + 1} of {projects.length} {''}
                 </span>
                 {project?.title}
-              </h4>
+              </h5>
 
               <div className="flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
@@ -60,7 +56,7 @@ const Projects = ({ projects }: Props) => {
                 ))}
               </div>
 
-              <p className="text-lg text-center md:text-left">
+              <p className="text-light text-center md:text-left">
                 {project?.summary}
               </p>
             </div>
