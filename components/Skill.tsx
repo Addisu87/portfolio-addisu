@@ -20,7 +20,7 @@ const Skill = ({ skill, directionLeft }: Props) => {
         alt=""
       />
 
-      <div className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-16 h-16 md:w-22 md:h-22 xl:w-24 xl:h-24 rounded-full z-0">
+      <div className="absolute opacity-0 group-hover:opacity-80 transition duration-400 ease-in-out group-hover:bg-white w-16 h-16 md:w-22 md:h-22 xl:w-24 xl:h-24 rounded-full z-0">
         <div className="flex items-center justify-center h-full">
           <p className="text-2xl font-light text-black opacity-100">
             {skill.progress}%

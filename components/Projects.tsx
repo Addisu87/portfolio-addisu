@@ -32,10 +32,15 @@ const Projects = ({ projects }: Props) => {
               transition={{ duration: 1.2 }}
               src={urlFor(project?.image).url()}
               alt=""
-              className="w-96 h-46"
+              className="w-96 h-46 xl:w-122 xl:h-70"
             />
 
             <div className="space-y-5 px-0 md:px-10 max-w-6xl">
+              <div className="text-center p-2">
+                <button className="heroButton ">{project?.sourceCode}</button>
+                <button className="heroButton">{project?.linkToBuild}</button>
+              </div>
+
               <h5 className="text-xl font-light text-center">
                 Project {i + 1} of {projects.length} {''}
                 <span className="underline decoration-[#F7AB0A]/50">

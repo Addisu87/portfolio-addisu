@@ -30,7 +30,12 @@ export default {
       of: [{ type: 'reference', to: { type: 'skill' } }]
     },
     {
-      name: 'LinkToBuild',
+      name: 'sourceCode',
+      title: 'SourceCode',
+      type: 'url'
+    },
+    {
+      name: 'linkToBuild',
       title: 'LinkToBuild',
       type: 'url'
     }
