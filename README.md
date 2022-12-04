@@ -18,6 +18,7 @@
 - Tailwind-scrollbar,
 - next-sanity,
 - Vercel CLI tooling
+- React-socks
 
 ## Getting Started
 
