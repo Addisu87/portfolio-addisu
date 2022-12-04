@@ -9,7 +9,7 @@ type Props = {
 const Skills = ({ skills }: Props) => {
   return (
     <div className="flex relative flex-col text-center md:text-left xl:flex-row mx-w-[200px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[16px] text-gray-500 text-2xl">
         Skills
       </h3>
 
