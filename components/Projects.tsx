@@ -49,7 +49,7 @@ const Projects = ({ projects }: Props) => {
                     key={technology._id}
                     src={urlFor(technology.image).url()}
                     alt=""
-                    className="w-10 h-10 rounded-full"
+                    className="w-10 h-10 rounded-full border-[1px]"
                   />
                 ))}
               </div>
