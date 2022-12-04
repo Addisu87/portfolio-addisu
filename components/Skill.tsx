@@ -12,7 +12,7 @@ const Skill = ({ skill, directionLeft }: Props) => {
   return (
     <div className="group relative flex cursor-pointer mx-auto">
       <motion.img
-        initial={{ x: directionLeft ? -50 : 50, opacity: 0 }}
+        initial={{ x: directionLeft ? -100 : 100, opacity: 0 }}
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
         className="rounded-full border-[1px] border-gray-500 object-cover w-16 h-16 md:w-22 md:h-22 xl:w-24 xl:h-24 filter group-hover:grayscale transition duration-400 ease-in-out group-hover:animate-bounce"
