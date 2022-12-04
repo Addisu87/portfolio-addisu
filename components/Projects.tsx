@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '../typings';
 import { urlFor } from '../sanity';
+import Link from 'next/link';
 
 type Props = {
   projects: Project[];
@@ -36,9 +37,13 @@ const Projects = ({ projects }: Props) => {
             />
 
             <div className="space-y-5 px-0 md:px-10 max-w-6xl">
-              <div className="text-center p-2">
-                <button className="heroButton ">{project?.sourceCode}</button>
-                <button className="heroButton">{project?.linkToBuild}</button>
+              <div className="flex items-center space-x-2 justify-center">
+                <Link href={project?.sourceCode}>
+                  <button className="heroButton ">SourceCode</button>
+                </Link>
+                <Link href={project?.linkToBuild}>
+                  <button className="heroButton">LiveDemo</button>
+                </Link>
               </div>
 
               <h5 className="text-xl font-light text-center">
