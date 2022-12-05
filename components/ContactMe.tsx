@@ -23,7 +23,7 @@ const ContactMe = ({}: Props) => {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-5 mt-[125px]">
+      <div className="flex flex-col space-y-5 top-64">
         <h4 className="text-2xl font-light text-center">
           Let us {''}
           <span className="decoration-[#F7AB0A]/50 underline">Talk.</span>
@@ -48,7 +48,7 @@ const ContactMe = ({}: Props) => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-fit mx-auto"
+          className="flex flex-col space-y-2 mx-auto ml-7"
         >
           <div className="flex space-x-2">
             <input
