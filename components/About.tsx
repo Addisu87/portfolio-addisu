@@ -31,7 +31,7 @@ const About = ({ pageInfo }: Props) => {
 
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-3xl font-bold">
-          Addisu&apos;s {''}
+          My {''}
           <span className="underline decoration-[#F7AB0A]/50">
             background
           </span>{' '}
