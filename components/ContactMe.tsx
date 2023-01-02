@@ -20,30 +20,30 @@ const ContactMe = ({}: Props) => {
   };
   return (
     <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[16px] text-gray-500 text-2xl">
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-4 top-80">
-        <h4 className="text-2xl font-light text-center">
+      <div className="flex flex-col space-y-6">
+        <h4 className="text-xl font-light text-center mt-32">
           Let us {''}
           <span className="decoration-[#F7AB0A]/50 underline">Talk.</span>
         </h4>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl">+251-912912144</p>
+            <PhoneIcon className="text-[#F7AB0A] h-5 w-5 animate-pulse" />
+            <p className="text-light">+251-912912144</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl">addisu.haile@yahoo.com</p>
+            <EnvelopeIcon className="text-[#F7AB0A] h-5 w-5 animate-pulse" />
+            <p className="text-light">addisu.haile@yahoo.com</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl">Ethiopia</p>
+            <MapPinIcon className="text-[#F7AB0A] h-5 w-5 animate-pulse" />
+            <p className="text-light">Ethiopia</p>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ const ContactMe = ({}: Props) => {
           />
           <button
             type="submit"
-            className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
+            className="bg-[#F7AB0A]/80 py-3 px-10 rounded-md text-black font-bold text-lg"
           >
             Submit
           </button>
