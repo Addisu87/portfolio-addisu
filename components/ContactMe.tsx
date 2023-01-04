@@ -25,7 +25,7 @@ const ContactMe = ({}: Props) => {
       </h3>
 
       <div className="flex flex-col space-y-6">
-        <h4 className="text-xl font-light text-center mt-32">
+        <h4 className="text-2xl font-light text-center mt-20">
           Let us {''}
           <span className="decoration-[#F7AB0A]/50 underline">Talk.</span>
         </h4>
@@ -51,7 +51,7 @@ const ContactMe = ({}: Props) => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col space-y-2 mx-auto w-fit"
         >
-          <div className="flex space-x-2">
+          <div className="flex flex-col gap-2 sm:flex-row">
             <input
               {...register('name')}
               placeholder="Name"
