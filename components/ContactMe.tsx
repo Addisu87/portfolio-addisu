@@ -24,26 +24,26 @@ const ContactMe = ({}: Props) => {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-6">
-        <h4 className="text-2xl font-light text-center mt-20">
+      <div className="flex flex-col space-y-10">
+        <h4 className="text-2xl font-light text-center mt-12">
           Let us {''}
           <span className="decoration-[#F7AB0A]/50 underline">Talk.</span>
         </h4>
 
         <div className="space-y-2">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#F7AB0A] h-5 w-5 animate-pulse" />
-            <p className="text-light">+251-912912144</p>
+            <PhoneIcon className="text-[#F7AB0A] h-6 w-6 animate-pulse" />
+            <p className="text-lg">+251-912912144</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-5 w-5 animate-pulse" />
-            <p className="text-light">addisu.haile@yahoo.com</p>
+            <EnvelopeIcon className="text-[#F7AB0A] h-6 w-6 animate-pulse" />
+            <p className="text-lg">addisu.haile@yahoo.com</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#F7AB0A] h-5 w-5 animate-pulse" />
-            <p className="text-light">Ethiopia</p>
+            <MapPinIcon className="text-[#F7AB0A] h-6 w-6 animate-pulse" />
+            <p className="text-lg">Ethiopia</p>
           </div>
         </div>
 
