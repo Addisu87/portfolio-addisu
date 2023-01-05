@@ -16,7 +16,7 @@ const ContactMe = ({}: Props) => {
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `addisu.haile@yahoo.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+    window.location.href = `mailto:addisu.haile@yahoo.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
   };
   return (
     <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
@@ -26,7 +26,7 @@ const ContactMe = ({}: Props) => {
 
       <div className="flex flex-col space-y-10">
         <h4 className="text-2xl font-light text-center mt-12">
-          Let us {''}
+          Let &apos;s {''}
           <span className="decoration-[#F7AB0A]/50 underline">Talk.</span>
         </h4>
 
@@ -57,14 +57,12 @@ const ContactMe = ({}: Props) => {
               placeholder="Name"
               className="contactInput"
               type="text"
-              required
             />
             <input
               {...register('email')}
               placeholder="Email"
               className="contactInput"
               type="email"
-              required
             />
           </div>
 
@@ -73,13 +71,11 @@ const ContactMe = ({}: Props) => {
             placeholder="Subject"
             className="contactInput"
             type="text"
-            required
           />
           <textarea
             {...register('message')}
             placeholder="Message"
             className="contactInput"
-            required
           />
           <button
             type="submit"
