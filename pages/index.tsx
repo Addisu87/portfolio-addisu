@@ -59,8 +59,8 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 
       <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
-          <div className="flex items-center justify-center object-right-bottom">
-            <HomeModernIcon className="animate-pulse filter grayscale hover:grayscale-0 transparent cursor-pointer w-7 h-7 text-right" />
+          <div className="flex flex-col">
+            <HomeModernIcon className="self-end right-6 animate-pulse filter grayscale hover:grayscale-0 transparent cursor-pointer w-7 h-7 mr-12" />
           </div>
         </footer>
       </Link>
