@@ -39,13 +39,13 @@ const Projects = ({ projects }: Props) => {
               />
             </motion.div>
 
-            <div className="space-y-5 px-0 md:px-10 max-w-6xl">
+            <div className="space-y-2 px-0 md:px-10 max-w-6xl">
               <div className="flex items-center space-x-2 justify-center">
                 <Link href={project?.sourceCode}>
-                  <button className="heroButton ">Source Code</button>
+                  <button className="heroButton ">Code</button>
                 </Link>
                 <Link href={project?.linkToBuild}>
-                  <button className="heroButton">Live Demo</button>
+                  <button className="heroButton">Live</button>
                 </Link>
               </div>
 
