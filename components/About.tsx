@@ -29,7 +29,7 @@ const About = ({ pageInfo }: Props) => {
         className="w-44 h-44 rounded-full object-cover md:rounded-lg -mb-20 md:mb-0 flex-shrink-0 md:w-65 md:h-95 xl:w-[400px] xl:h-[500px] mt-[80px]"
       />
 
-      <div className="space-y-10 px-0 md:px-10">
+      <div className="space-y-8 px-0 md:px-10">
         <h4 className="text-3xl font-bold">
           My {''}
           <span className="underline decoration-[#F7AB0A]/50">
