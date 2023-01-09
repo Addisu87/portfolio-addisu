@@ -26,15 +26,18 @@ const Projects = ({ projects }: Props) => {
             key={project._id}
             className="w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-10 md:p-34"
           >
-            <motion.img
+            <motion.div
               initial={{ y: -300, opacity: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
-              src={urlFor(project?.image).url()}
-              alt=""
-              className="w-96 h-46 xl:w-122 xl:h-70"
-            />
+            >
+              <motion.img
+                src={urlFor(project?.image).url()}
+                alt=""
+                className="w-96 h-46 xl:w-122 xl:h-70"
+              />
+            </motion.div>
 
             <div className="space-y-5 px-0 md:px-10 max-w-6xl">
               <div className="flex items-center space-x-2 justify-center">
