@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { PageInfo } from '../typings';
-import { urlFor } from '../sanity';
+import React from "react";
+import { motion } from "framer-motion";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
 type Props = {
   pageInfo: PageInfo;
@@ -31,10 +31,10 @@ const About = ({ pageInfo }: Props) => {
 
       <div className="space-y-8 px-0 md:px-10">
         <h4 className="text-3xl font-bold">
-          My {''}
+          My {""}
           <span className="underline decoration-[#F7AB0A]/50">
             background
-          </span>{' '}
+          </span>{" "}
         </h4>
         <p className="text-xl font-light">{pageInfo?.backgroundInformation}</p>
       </div>
