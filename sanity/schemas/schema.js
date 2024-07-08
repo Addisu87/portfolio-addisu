@@ -10,7 +10,13 @@ import project from './project';
 import social from './social';
 
 export default createSchema({
-  name: 'default',
+	name: 'default',
 
-  types: schemaTypes.concat([pageInfo, skill, experience, project, social])
+	types: schemaTypes.concat([
+		pageInfo,
+		skill,
+		experience,
+		project,
+		social,
+	]),
 });

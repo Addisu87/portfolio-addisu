@@ -5,22 +5,22 @@ import { BreakpointProvider } from 'react-socks';
 import { Analytics } from '@vercel/analytics/react';
 
 function App({ Component, pageProps }: AppProps) {
-  const [showChild, setShowChild] = useState(false);
+	const [showChild, setShowChild] = useState(false);
 
-  useEffect(() => {
-    setShowChild(true);
-  }, []);
+	useEffect(() => {
+		setShowChild(true);
+	}, []);
 
-  if (!showChild) {
-    return null;
-  }
+	if (!showChild) {
+		return null;
+	}
 
-  return (
-    <BreakpointProvider>
-      <Component {...pageProps} />;
-      <Analytics />
-    </BreakpointProvider>
-  );
+	return (
+		<BreakpointProvider>
+			<Component {...pageProps} />;
+			<Analytics />
+		</BreakpointProvider>
+	);
 }
 
 export default App;
