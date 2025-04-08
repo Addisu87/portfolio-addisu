@@ -47,7 +47,7 @@ const ExperienceCard = ({ experience }: Props) => {
 				</p>
 
 				<ul className='list-disc list-inside space-y-4 ml-5 text-light max-h-24 max-w-24 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
-					{experience.points.map((point, i) => (
+					{experience.points?.map((point, i) => (
 						<li key={i}>{point}</li>
 					))}
 				</ul>
