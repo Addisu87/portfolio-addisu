@@ -7,13 +7,13 @@ import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
 
 type Props = {
-	pageInfo: PageInfo;
+	pageInfo: PageInfo | null;
 };
 
 const Hero = ({ pageInfo }: Props) => {
 	const [text] = useTypewriter({
 		words: [
-			`Hello, my name is ${pageInfo?.name}`,
+			`Hello, my name is ${pageInfo?.name || 'Developer'}`,
 			'I am a Full Stack Developer',
 			'I am an Enthusiastic Developer',
 			'I am a Freelancer',
