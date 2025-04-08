@@ -1,21 +1,21 @@
-import { Project } from '../typings';
+import { Project } from "../typings"
 
 export const fetchProjects = async () => {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 	if (!baseUrl) {
-		throw new Error('NEXT_PUBLIC_BASE_URL is not defined');
+		throw new Error("NEXT_PUBLIC_BASE_URL is not defined")
 	}
 
-	const res = await fetch(`${baseUrl}/api/getProjects`);
+	const res = await fetch(`${baseUrl}/api/getProjects`)
 
 	if (!res.ok) {
-		throw new Error(`Failed to fetch projects: ${res.status}`);
+		throw new Error(`Failed to fetch projects: ${res.status}`)
 	}
 
-	const data = await res.json();
-	const projects: Project[] = data.projects;
+	const data = await res.json()
+	const projects: Project[] = data.projects
 
 	// console.log('fetching', projects);
 
-	return projects;
-};
+	return projects
+}
