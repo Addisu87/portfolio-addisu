@@ -13,7 +13,7 @@ import { fetchPageInfo } from "../utils/fetchPageInfo"
 import { fetchExperiences } from "../utils/fetchExperiences"
 import { fetchSkills } from "../utils/fetchSkills"
 import { fetchProjects } from "../utils/fetchProjects"
-import { fetchSocial } from "../utils/fetchSocials"
+import { fetchSocials } from "../utils/fetchSocials"
 import { HomeModernIcon } from "@heroicons/react/24/solid"
 
 type Props = {
@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 		const experiences: Experience[] = await fetchExperiences()
 		const skills: Skill[] = await fetchSkills()
 		const projects: Project[] = await fetchProjects()
-		const socials: Social[] = await fetchSocial()
+		const socials: Social[] = await fetchSocials()
 
 		return {
 			props: {

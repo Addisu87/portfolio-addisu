@@ -1,13 +1,12 @@
 import { PageInfo } from "../typings"
 
 export const fetchPageInfo = async () => {
+	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 	try {
-		const res = await fetch("/api/getPageInfo") // Relative URL
-
+		const res = await fetch(`${baseUrl}/api/getPageInfo`)
 		if (!res.ok) {
 			throw new Error(`HTTP error! status: ${res.status}`)
 		}
-
 		const data = await res.json()
 		const pageInfo: PageInfo = data.pageInfo
 
