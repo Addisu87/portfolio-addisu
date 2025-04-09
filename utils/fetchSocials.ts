@@ -1,14 +1,14 @@
 import { Social } from "../typings"
 
 export const fetchSocial = async () => {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-	if (!baseUrl) {
-		throw new Error("NEXT_PUBLIC_BASE_URL is not defined")
+	try {
+		const res = await fetch("/api/getSocials") // Relative URL
+		if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
+		const data = await res.json()
+		const socials: Social[] = data.socials
+		return socials
+	} catch (error) {
+		console.error("Error fetching socials:", error)
+		throw error
 	}
-
-	const res = await fetch(`${baseUrl}/api/getSocials`)
-	const data = await res.json()
-	const socials: Social[] = data.socials
-
-	return socials
 }
