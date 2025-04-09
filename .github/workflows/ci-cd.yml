@@ -1,33 +1,49 @@
-name: Deploy Next.js with Sanity
+name: Deploy Next.js Portfolio with Sanity
 
 on:
   push:
     branches:
-      - master
+      - master # Triggers on pushes to master
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Set up Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "18" # Matches Next.js requirements
+          cache: "yarn" # Caches Yarn dependencies for faster builds
 
-      - name: Install Dependencies
-        run: npm ci
+      # Install root-level dependencies (Next.js app)
+      - name: Install Next.js Dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: ./
 
+      # Install and build Sanity Studio
+      - name: Install and Build Sanity Studio
+        run: yarn install --frozen-lockfile && yarn sanity build
+        working-directory: ./sanity
+
+      # Copy Sanity Studio output to Next.js public folder
+      - name: Copy Sanity Studio to Public
+        run: mkdir -p public/sanity && cp -r sanity/dist/* public/sanity/
+
+      # Build Next.js app with Sanity environment variables
       - name: Build Next.js App
-        run: npm run build
+        run: yarn build
         env:
           NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
 
+      # Deploy to Vercel
       - name: Deploy to Vercel
-        run: npx vercel --prod
+        run: yarn vercel --prod
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
