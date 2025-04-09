@@ -14,10 +14,6 @@ type Data = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
 	try {
-		if (!sanityClient.config.projectId) {
-			throw new Error("Sanity project ID is not configured")
-		}
-
 		console.log("Fetching pageInfo from Sanity...")
 		const pageInfo: PageInfo = await sanityClient.fetch(query)
 
