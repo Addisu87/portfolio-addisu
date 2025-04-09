@@ -17,7 +17,7 @@ const Header = ({ socials }: Props) => {
 	}
 
 	return (
-		<header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
+		<header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center hover:text-[#F7AB0A]/40">
 			<motion.div
 				{...motionProps}
 				initial={{ x: -500, ...motionProps.initial }}
@@ -28,7 +28,7 @@ const Header = ({ socials }: Props) => {
 					<SocialIcon
 						key={social._id}
 						url={social.url}
-						fgColor="gray"
+						fgColor="#D9D9D9"
 						bgColor="transparent"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -44,13 +44,13 @@ const Header = ({ socials }: Props) => {
 				<Link
 					href="#contact"
 					scroll={false}
-					className="group flex flex-row items-center text-gray-300 cursor-pointer"
+					className="group flex flex-row items-center text-gray-200 cursor-pointer"
 					aria-label="Contact section"
 				>
 					<div className="animate-pulse">
-						<EnvelopeIcon className="h-10 w-10 text-gray-400 group-hover:text-[#F7AB0A]/80 transition-colors duration-300" />
+						<EnvelopeIcon className="h-10 w-10 text-gray-300 group-hover:text-[#F7AB0A]/80 transition-colors duration-300" />
 					</div>
-					<p className="uppercase hidden md:inline-flex text-sm text-gray-400 pl-4 group-hover:text-[#F7AB0A]/80 transition-colors duration-300">
+					<p className="uppercase hidden md:inline-flex text-sm text-gray-300 pl-4 group-hover:text-[#F7AB0A]/80 transition-colors duration-300">
 						Get In Touch
 					</p>
 				</Link>
