@@ -53,7 +53,7 @@ To start Sanity for the backend server
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://portfolio-addisu-addisu87.vercel.app)
+[Live Demo Link](https://portfolio-addisu.vercel.app/)
 
 ## Deploy on Vercel
 
