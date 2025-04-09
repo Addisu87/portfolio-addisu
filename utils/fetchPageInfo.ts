@@ -6,9 +6,20 @@ export const fetchPageInfo = async () => {
 		throw new Error("NEXT_PUBLIC_BASE_URL is not defined")
 	}
 
-	const res = await fetch(`${baseUrl}/api/getPageInfo`)
-	const data = await res.json()
-	const pageInfo: PageInfo = data.pageInfo
+	try {
+		console.log(`Fetching from: ${baseUrl}/api/getPageInfo`)
+		const res = await fetch(`${baseUrl}/api/getPageInfo`)
+		
+		if (!res.ok) {
+			throw new Error(`HTTP error! status: ${res.status}`)
+		}
+		
+		const data = await res.json()
+		const pageInfo: PageInfo = data.pageInfo
 
-	return pageInfo
+		return pageInfo
+	} catch (error) {
+		console.error("Detailed fetch error:", error)
+		throw error
+	}
 }

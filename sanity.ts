@@ -12,4 +12,4 @@ export const config = {
 export const sanityClient = createClient(config)
 
 // Helper function for generating Image URLs with only the asset reference data in your documents
-export const urlFor = (source: any) => createImageUrlBuilder(sanityClient).image(source)
+export const urlFor = (source: any) => createImageUrlBuilder(config).image(source)
