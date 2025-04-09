@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  images: {
-    domains: ['cdn.sanity.io']
-  }
-};
+	reactStrictMode: true,
+	swcMinify: true,
+	images: {
+		domains: ["cdn.sanity.io"],
+	},
+	env: {
+		API_URL:
+			process.env.NEXT_PUBLIC_API_URL ||
+			(process.env.VERCEL_URL
+				? `https://${process.env.VERCEL_URL}`
+				: "http://localhost:3000"),
+	},
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

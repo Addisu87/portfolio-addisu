@@ -1,14 +1,14 @@
-import { Experience } from '../typings';
+import { Experience } from "../typings"
 
 export const fetchExperiences = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/getExperiences`
-  );
+	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+	if (!baseUrl) {
+		throw new Error("NEXT_PUBLIC_BASE_URL is not defined")
+	}
 
-  const data = await res.json();
-  const experiences: Experience[] = data.experiences;
+	const res = await fetch(`${baseUrl}/api/getExperiences`)
+	const data = await res.json()
+	const experiences: Experience[] = data.experiences
 
-  // console.log('fetching', experiences);
-
-  return experiences;
-};
+	return experiences
+}
