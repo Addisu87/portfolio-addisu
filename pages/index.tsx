@@ -33,34 +33,40 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 
 			<Header socials={socials || []} />
 
-			<section id="hero" className="snap-start">
-				<Hero pageInfo={pageInfo} />
-			</section>
+			<div className="space-y-16 sm:space-y-24 md:space-y-32">
+				<section id="hero" className="snap-start h-screen">
+					<Hero pageInfo={pageInfo} />
+				</section>
 
-			<section id="about" className="snap-center">
-				<About pageInfo={pageInfo} />
-			</section>
+				<section id="about" className="snap-center min-h-screen">
+					<About pageInfo={pageInfo} />
+				</section>
 
-			<section id="experience" className="snap-center">
-				<WorkExperience experiences={experiences || []} />
-			</section>
+				<section id="experience" className="snap-center min-h-screen">
+					<WorkExperience experiences={experiences || []} />
+				</section>
 
-			<section id="skills" className="snap-start">
-				<Skills skills={skills || []} />
-			</section>
+				<section id="skills" className="snap-center min-h-screen">
+					<Skills skills={skills || []} />
+				</section>
 
-			<section id="projects" className="snap-start">
-				<Projects projects={projects || []} />
-			</section>
+				<section id="projects" className="snap-center min-h-screen">
+					<Projects projects={projects || []} />
+				</section>
 
-			<section id="contact" className="snap-start">
-				<ContactMe />
-			</section>
+				<section id="contact" className="snap-start min-h-screen">
+					<ContactMe />
+				</section>
+			</div>
 
 			<Link href="#hero">
 				<footer className="sticky bottom-5 w-full cursor-pointer">
-					<div className="flex flex-col">
-						<HomeModernIcon className="self-end w-7 h-7 mr-12 animate-pulse filter grayscale hover:grayscale-0 transparent cursor-pointer" />
+					<div className="flex items-center justify-end px-10">
+						<HomeModernIcon
+							className="h-7 w-7 animate-pulse 
+							filter grayscale hover:grayscale-0 
+							cursor-pointer"
+						/>
 					</div>
 				</footer>
 			</Link>
