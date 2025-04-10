@@ -15,7 +15,10 @@ type Data = {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-	const projects: Project[] = await sanityClient.fetch(query)
-
-	res.status(200).json({ projects })
+	try {
+		const projects: Project[] = await sanityClient.fetch(query)
+		res.status(200).json({ projects })
+	} catch (error) {
+		res.status(500).json({ projects: [] })
+	}
 }
