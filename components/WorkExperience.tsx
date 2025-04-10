@@ -12,16 +12,19 @@ const WorkExperience = ({ experiences }: Props) => {
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1.5 }}
-			className="relative flex flex-col items-center max-w-7xl mx-auto py-12 sm:py-16 md:py-20"
+			className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center"
 		>
-			<h3 className="uppercase tracking-[20px] text-gray-500 text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-10">
+			<h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-lg sm:text-xl md:text-2xl">
 				Experience
 			</h3>
 
-			<div className="w-full flex space-x-5 overflow-x-scroll pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
-				{experiences?.map((experience) => (
-					<ExperienceCard key={experience._id} experience={experience} />
-				))}
+			{/* Cards Container */}
+			<div className="w-full flex space-x-5 p-10 pt-32 snap-x snap-mandatory overflow-x-scroll scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+				<div className="flex items-center space-x-5 justify-center">
+					{experiences?.map((experience) => (
+						<ExperienceCard key={experience._id} experience={experience} />
+					))}
+				</div>
 			</div>
 		</motion.div>
 	)
