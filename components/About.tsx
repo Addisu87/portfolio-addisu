@@ -13,9 +13,9 @@ const About = ({ pageInfo }: Props) => {
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1.5 }}
-			className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center overflow-hidden"
+			className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 justify-evenly mx-auto items-center"
 		>
-			<h3 className="absolute top-24 uppercase tracking-[16px] text-gray-500 text-2xl">
+			<h3 className="absolute top-16 sm:top-24 uppercase tracking-[16px] text-gray-500 text-xl sm:text-2xl">
 				About
 			</h3>
 
@@ -26,15 +26,16 @@ const About = ({ pageInfo }: Props) => {
 				viewport={{ once: true }}
 				src={urlFor(pageInfo?.profilePic).url()}
 				alt=""
-				className="w-44 h-44 rounded-full object-cover md:rounded-lg -mb-20 md:mb-0 flex-shrink-0 md:w-65 md:h-95 xl:w-[400px] xl:h-[500px] mt-[80px]"
+				className="mt-24 sm:mt-32 md:mt-0 flex-shrink-0 w-32 h-32 sm:w-44 sm:h-44 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
 			/>
 
-			<div className="space-y-8 px-0 md:px-10">
-				<h4 className="text-3xl font-bold">
-					My {""}
-					<span className="underline decoration-[#F7AB0A]/50">background</span>{" "}
+			<div className="space-y-4 sm:space-y-8 px-0 md:px-10 mt-4 sm:mt-8 md:mt-0">
+				<h4 className="text-2xl sm:text-3xl font-bold">
+					My <span className="underline decoration-[#F7AB0A]/50">background</span>
 				</h4>
-				<p className="text-xl font-light">{pageInfo?.backgroundInformation}</p>
+				<p className="text-base sm:text-xl font-light max-w-3xl">
+					{pageInfo?.backgroundInformation}
+				</p>
 			</div>
 		</motion.div>
 	)
