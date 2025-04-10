@@ -14,9 +14,9 @@ type Props = {
 
 const ProjectCard = ({ project, index, total }: Props) => {
 	return (
-		<article className="flex flex-col rounded-lg items-center w-full max-w-[95vw] md:max-w-[600px] h-[650px] md:h-[700px] snap-center bg-[#292929] hover:bg-[#313131] transition-all duration-200 overflow-hidden flex-shrink-0">
+		<article className="flex flex-col rounded-lg items-center w-full max-w-[95vw] md:max-w-[600px] h-[450px] md:h-[500px] snap-center bg-[#292929] hover:bg-[#313131] transition-all duration-200 overflow-hidden flex-shrink-0">
 			{/* Header Section */}
-			<div className="relative w-full px-5 md:px-8 py-4 md:py-6 bg-[#1f1f1f] border-b border-gray-700">
+			<div className="relative w-full px-5 md:px-8 py-2 md:py-3 bg-[#1f1f1f] border-b border-gray-700">
 				{/* Title and Project Number */}
 				<div className="flex items-center justify-between mb-4">
 					<h4 className="text-2xl md:text-3xl font-bold text-[#F7AB0A]">
@@ -28,7 +28,7 @@ const ProjectCard = ({ project, index, total }: Props) => {
 				</div>
 
 				{/* Tech Stack and Links Row */}
-				<div className="flex justify-between items-center">
+				<div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
 					{/* Tech Stack */}
 					<div className="flex flex-wrap gap-3">
 						{project?.technologies?.map((technology) => (
@@ -71,14 +71,14 @@ const ProjectCard = ({ project, index, total }: Props) => {
 			</div>
 
 			{/* Content Section */}
-			<div className="px-5 md:px-8 py-6 flex-1 w-full overflow-y-auto">
+			<div className="px-5 md:px-8 py-2 flex-1 w-full overflow-y-auto">
 				{/* Project Image */}
 				<motion.div
 					initial={{ y: -20, opacity: 0 }}
 					transition={{ duration: 1.2 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					className="relative w-full h-[300px] md:h-[350px] mb-6"
+					className="relative w-full h-[220px] md:h-[280px] mb-2"
 				>
 					{project?.image && (
 						<Image
@@ -92,7 +92,7 @@ const ProjectCard = ({ project, index, total }: Props) => {
 				</motion.div>
 
 				{/* Project Summary */}
-				<p className="text-base md:text-lg text-gray-300 leading-relaxed">
+				<p className="text-sm md:text-base text-gray-300 leading-relaxed">
 					{project?.summary}
 				</p>
 			</div>
