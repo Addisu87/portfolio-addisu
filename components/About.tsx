@@ -2,6 +2,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import { PageInfo } from "../typings"
 import { urlFor } from "../lib/sanity"
+import Image from "next/image"
 
 type Props = {
 	pageInfo: PageInfo | null
@@ -13,29 +14,45 @@ const About = ({ pageInfo }: Props) => {
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1.5 }}
-			className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 justify-evenly mx-auto items-center"
+			className="h-screen relative flex flex-col text-center md:text-left max-w-7xl mx-auto items-center justify-evenly px-4 md:px-10"
 		>
-			<h3 className="absolute top-16 sm:top-24 uppercase tracking-[16px] text-gray-500 text-xl sm:text-2xl">
+			<h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
 				About
 			</h3>
 
-			<motion.img
-				initial={{ x: -200, opacity: 0 }}
-				transition={{ duration: 1.2 }}
-				whileInView={{ opacity: 1, x: 0 }}
-				viewport={{ once: true }}
-				src={urlFor(pageInfo?.profilePic).url()}
-				alt=""
-				className="mt-24 sm:mt-32 md:mt-0 flex-shrink-0 w-32 h-32 sm:w-44 sm:h-44 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
-			/>
+			<div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mt-32 md:mt-0">
+				<motion.div
+					initial={{ x: -200, opacity: 0 }}
+					whileInView={{ x: 0, opacity: 1 }}
+					viewport={{ once: true }}
+					transition={{ duration: 1.2 }}
+					className="relative w-56 h-56 md:w-[350px] md:h-[450px] xl:w-[400px] xl:h-[500px] flex-shrink-0"
+				>
+					<Image
+						src={urlFor(pageInfo?.profilePic).url()}
+						alt="Profile picture"
+						fill
+						className="rounded-full md:rounded-lg object-cover"
+						sizes="(max-width: 768px) 224px, (max-width: 1280px) 350px, 400px"
+						priority
+					/>
+				</motion.div>
 
-			<div className="space-y-4 sm:space-y-8 px-0 md:px-10 mt-4 sm:mt-8 md:mt-0">
-				<h4 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-[#F7AB0A] line-clamp-1">
-					Background
-				</h4>
-				<p className="text-base sm:text-xl font-light max-w-3xl">
-					{pageInfo?.backgroundInformation}
-				</p>
+				<motion.div
+					initial={{ opacity: 0, y: 50 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 1.2, delay: 0.2 }}
+					className="space-y-5 px-0 md:px-10 max-w-3xl"
+				>
+					<h4 className="text-3xl md:text-4xl font-semibold text-[#F7AB0A]">
+						Here&apos;s my{" "}
+						<span className="underline decoration-[#F7AB0A]/50">background</span>
+					</h4>
+					<p className="text-base md:text-lg text-gray-300 leading-relaxed">
+						{pageInfo?.backgroundInformation}
+					</p>
+				</motion.div>
 			</div>
 		</motion.div>
 	)
