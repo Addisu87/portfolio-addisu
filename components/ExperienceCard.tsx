@@ -9,44 +9,70 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
 	return (
-		<article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[450px] md:w-[550px] xl:w-[650px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
-			<motion.div
-				initial={{ x: -100, opacity: 0 }}
-				transition={{ duration: 1.2 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true }}
-			>
-				<motion.img
-					className="w-20 h-20 rounded-full xl:w-[100px] xl:h-[100px] object-cover object-center"
-					src={urlFor(experience?.companyImage).url()}
-					alt=""
-				/>
-			</motion.div>
+		<article className="flex flex-col rounded-lg items-center flex-shrink-0 w-[300px] sm:w-[450px] md:w-[600px] xl:w-[750px] snap-center bg-[#292929] hover:bg-[#313131] transition-all duration-200 overflow-hidden shadow-lg shadow-black/20 cursor-pointer h-[500px] sm:h-[600px]">
+			{/* Content Section */}
+			<div className="px-4 sm:px-8 py-4 flex-1 w-full overflow-y-auto scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-[#F7AB0A]/60">
+				{/* Header Section */}
 
-			<div className="px-2 md:px-10">
-				<h4 className="text-2xl font-light">{experience?.jobTitle}</h4>
-				<p className="font-semibold text-xl mt-1">{experience?.company}</p>
-				<div className="flex items-center justify-center space-x-2 my-2">
+				{/* Company Logo */}
+				<div className="flex justify-center">
+					<motion.img
+						initial={{ y: -50, opacity: 0 }}
+						transition={{ duration: 1.2 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						className="w-16 h-16 sm:w-20 sm:h-20 xl:w-24 xl:h-24 rounded-full object-cover object-center border-2 border-[#F7AB0A]/40"
+						src={urlFor(experience?.companyImage).url()}
+						alt={experience?.company}
+					/>
+				</div>
+
+				{/* Job Title and Company */}
+				<div className="text-center mt-3">
+					<h4 className="text-lg sm:text-xl font-bold text-[#F7AB0A]">
+						{experience?.jobTitle}
+					</h4>
+					<p className="text-base sm:text-lg font-medium text-gray-200 mt-1">
+						{experience?.company}
+					</p>
+				</div>
+
+				{/* Date Range */}
+				<p className="text-center text-sm text-gray-400 mt-2">
+					{new Date(experience.dateStarted).toLocaleDateString("en-US", {
+						month: "short",
+						year: "numeric",
+					})}
+					{" - "}
+					{experience.isCurrentlyWorkingHere
+						? "Present"
+						: new Date(experience.dateEnded).toLocaleDateString("en-US", {
+								month: "short",
+								year: "numeric",
+						  })}
+				</p>
+
+				{/* Tech Stack */}
+				<div className="flex flex-wrap items-center justify-center gap-2 mb-4">
 					{experience.technologies.map((technology) => (
 						<motion.img
 							key={technology._id}
-							className="w-10 h-10 rounded-full border-[1px]"
+							initial={{ opacity: 0 }}
+							whileInView={{ opacity: 1 }}
+							transition={{ duration: 0.5 }}
+							className="w-7 h-7 sm:w-8 sm:h-8 rounded-full 	bg-white/10 p-1 hover:bg-white/20 transition-all duration-200"
 							src={urlFor(technology.image).url()}
-							alt=""
+							alt={technology.title || "Technology"}
 						/>
 					))}
 				</div>
 
-				<p className="uppercase py-4 text-gray-300">
-					{new Date(experience.dateStarted).toDateString()} - {""}
-					{experience.isCurrentlyWorkingHere
-						? "Present"
-						: new Date(experience.dateEnded).toDateString()}
-				</p>
-
-				<ul className="list-disc list-inside space-y-4 ml-5 text-light max-h-24 max-w-24 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80">
+				{/* Points/Achievements */}
+				<ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
 					{experience.points?.map((point, i) => (
-						<li key={i}>{point}</li>
+						<li key={i} className="text-left">
+							<span className="ml-2">{point}</span>
+						</li>
 					))}
 				</ul>
 			</div>
