@@ -30,8 +30,8 @@ const About = ({ pageInfo }: Props) => {
 			/>
 
 			<div className="space-y-4 sm:space-y-8 px-0 md:px-10 mt-4 sm:mt-8 md:mt-0">
-				<h4 className="text-2xl sm:text-3xl font-bold">
-					My <span className="underline decoration-[#F7AB0A]/50">background</span>
+				<h4 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-[#F7AB0A] line-clamp-1">
+					Background
 				</h4>
 				<p className="text-base sm:text-xl font-light max-w-3xl">
 					{pageInfo?.backgroundInformation}
