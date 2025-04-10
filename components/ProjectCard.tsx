@@ -14,7 +14,7 @@ type Props = {
 
 const ProjectCard = ({ project, index, total }: Props) => {
 	return (
-		<article className="flex flex-col rounded-lg items-center w-full max-w-[95vw] md:max-w-[600px] h-[550px] md:h-[600px] snap-center bg-[#292929] hover:bg-[#313131] transition-all duration-200 overflow-hidden flex-shrink-0">
+		<article className="flex flex-col rounded-lg items-center w-full max-w-[95vw] md:max-w-[600px] h-[650px] md:h-[700px] snap-center bg-[#292929] hover:bg-[#313131] transition-all duration-200 overflow-hidden flex-shrink-0">
 			{/* Header Section */}
 			<div className="relative w-full px-5 md:px-8 py-4 md:py-6 bg-[#1f1f1f] border-b border-gray-700">
 				{/* Title and Project Number */}
@@ -71,21 +71,21 @@ const ProjectCard = ({ project, index, total }: Props) => {
 			</div>
 
 			{/* Content Section */}
-			<div className="px-5 md:px-8 py-6 flex-1 w-full">
+			<div className="px-5 md:px-8 py-6 flex-1 w-full overflow-y-auto">
 				{/* Project Image */}
 				<motion.div
 					initial={{ y: -20, opacity: 0 }}
 					transition={{ duration: 1.2 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					className="relative w-full h-[250px] md:h-[300px] mb-6"
+					className="relative w-full h-[300px] md:h-[350px] mb-6"
 				>
 					{project?.image && (
 						<Image
 							src={urlFor(project.image).url()}
 							alt={project.title || "Project Image"}
 							fill
-							className="rounded-lg object-cover"
+							className="rounded-lg object-contain bg-[#1f1f1f]"
 							sizes="(max-width: 768px) 95vw, 600px"
 						/>
 					)}
