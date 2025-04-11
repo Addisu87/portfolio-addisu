@@ -15,7 +15,11 @@ const WorkExperience = ({ experiences }: Props) => {
 					key={experience._id}
 					className="snap-center flex-shrink-0 flex items-center justify-center w-[95vw] md:w-[600px] mt-16"
 				>
-					<ExperienceCard experience={experience} />
+					<ExperienceCard
+						experience={experience}
+						index={i}
+						total={experiences.length}
+					/>
 				</div>
 			)),
 		[experiences],

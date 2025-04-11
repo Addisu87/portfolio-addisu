@@ -5,9 +5,11 @@ import { urlFor } from "../lib/sanity"
 
 type Props = {
 	experience: Experience
+	index: number
+	total: number
 }
 
-const ExperienceCard = ({ experience }: Props) => {
+const ExperienceCard = ({ experience, index, total }: Props) => {
 	return (
 		<article
 			className="
@@ -49,19 +51,24 @@ const ExperienceCard = ({ experience }: Props) => {
 					</div>
 				</div>
 
-				{/* Tech Stack */}
-				<div className="flex flex-wrap items-center gap-1.5 md:gap-2 mt-2 md:mt-3">
-					{experience.technologies.map((technology) => (
-						<motion.img
-							key={technology._id}
-							initial={{ opacity: 0 }}
-							whileInView={{ opacity: 1 }}
-							transition={{ duration: 0.5 }}
-							className="h-8 w-8 rounded-full bg-white/10 p-1"
-							src={urlFor(technology.image).url()}
-							alt={technology.title || "Technology"}
-						/>
-					))}
+				{/* Tech Stack with Index Counter */}
+				<div className="flex justify-between items-center mt-2 md:mt-3">
+					<div className="flex flex-wrap items-center gap-1.5 md:gap-2">
+						{experience.technologies.map((technology) => (
+							<motion.img
+								key={technology._id}
+								initial={{ opacity: 0 }}
+								whileInView={{ opacity: 1 }}
+								transition={{ duration: 0.5 }}
+								className="h-8 w-8 rounded-full bg-white/10 p-1"
+								src={urlFor(technology.image).url()}
+								alt={technology.title || "Technology"}
+							/>
+						))}
+					</div>
+					<span className="text-sm md:text-base text-gray-400 ml-4">
+						{index + 1} of {total}
+					</span>
 				</div>
 			</div>
 
