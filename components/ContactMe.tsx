@@ -89,11 +89,11 @@ ${formData.name}
 		<div className="h-screen relative flex flex-col text-center md:text-left max-w-7xl px-4 md:px-10 mx-auto items-center justify-center">
 			<h3 className="section-title">Contact</h3>
 
-			<h4 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
+			<h4 className="absolute top-28 sm:top-32 md:top-36 uppercase tracking-[3px] text-gray-500 text-sm">
 				Let&apos;s discuss your next project
 			</h4>
 
-			<div className="flex flex-col space-y-6 w-full max-w-2xl mt-32">
+			<div className="flex flex-col space-y-6 w-full max-w-2xl mt-20 sm:mt-24 md:mt-32">
 				{/* Contact Info Section */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
