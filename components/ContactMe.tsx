@@ -23,9 +23,7 @@ const ContactMe = () => {
 
 	return (
 		<div className="h-screen relative flex flex-col text-center md:text-left max-w-7xl px-4 md:px-10 mx-auto items-center justify-center">
-			<h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
-				Contact
-			</h3>
+			<h3 className="section-title">Contact</h3>
 
 			<h4 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
 				Let&apos;s discuss your next project

@@ -10,9 +10,7 @@ type Props = {
 const Skills = ({ skills }: Props) => {
 	return (
 		<div className="h-screen relative flex flex-col items-center justify-center text-center">
-			<h3 className="absolute top-24 uppercase tracking-[16px] text-gray-500 text-2xl">
-				Skills
-			</h3>
+			<h3 className="section-title">Skills</h3>
 
 			<h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
 				Hover over a skill for current proficiency
