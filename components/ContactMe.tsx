@@ -1,24 +1,88 @@
 import React from "react"
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/outline"
 import { useForm, SubmitHandler } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
 import { motion } from "framer-motion"
 
-type Inputs = {
-	name: string
-	email: string
-	subject: string
-	message: string
-}
+// Email regex pattern
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+// Define the validation schema with Zod
+const contactFormSchema = z.object({
+	name: z
+		.string()
+		.min(2, "Name must be at least 2 characters")
+		.max(50, "Name must be less than 50 characters")
+		.regex(/^[a-zA-Z\s]*$/, "Name can only contain letters and spaces"),
+	email: z
+		.string()
+		.email("Please enter a valid email address")
+		.regex(EMAIL_REGEX, "Please enter a valid email address")
+		.min(5, "Email is too short")
+		.max(100, "Email is too long"),
+	subject: z
+		.string()
+		.min(3, "Subject must be at least 3 characters")
+		.max(100, "Subject must be less than 100 characters")
+		.regex(
+			/^[a-zA-Z0-9\s.,!?-]*$/,
+			"Subject can only contain letters, numbers, and basic punctuation",
+		),
+	message: z
+		.string()
+		.min(10, "Message must be at least 10 characters")
+		.max(1000, "Message must be less than 1000 characters")
+		.trim(), // Remove leading/trailing whitespace
+})
+
+// Infer the TypeScript type from the schema
+type ContactFormInputs = z.infer<typeof contactFormSchema>
 
 const ContactMe = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
-	} = useForm<Inputs>()
+		reset,
+		formState: { errors, isSubmitting },
+	} = useForm<ContactFormInputs>({
+		resolver: zodResolver(contactFormSchema),
+		defaultValues: {
+			name: "",
+			email: "",
+			subject: "",
+			message: "",
+		},
+	})
 
-	const onSubmit: SubmitHandler<Inputs> = (formData) => {
-		window.location.href = `mailto:addisuhaile87@gmail.com?subject=${formData.subject}&body=Hello, my name is ${formData.name}. ${formData.message} (${formData.email})`
+	const onSubmit: SubmitHandler<ContactFormInputs> = async (formData) => {
+		try {
+			// Sanitize and format the message
+			const sanitizedMessage = formData.message.trim()
+			const formattedBody = `
+Hello,
+
+My name is ${formData.name}.
+
+${sanitizedMessage}
+
+Best regards,
+${formData.name}
+(${formData.email})
+			`.trim()
+
+			// Encode the email components for proper URL formatting
+			const encodedSubject = encodeURIComponent(formData.subject)
+			const encodedBody = encodeURIComponent(formattedBody)
+
+			// Open email client with formatted data
+			window.location.href = `mailto:addisuhaile87@gmail.com?subject=${encodedSubject}&body=${encodedBody}`
+
+			// Reset form after successful submission
+			reset()
+		} catch (error) {
+			console.error("Error submitting form:", error)
+		}
 	}
 
 	return (
@@ -66,59 +130,63 @@ const ContactMe = () => {
 					<div className="flex flex-col md:flex-row gap-4">
 						<div className="flex-1">
 							<input
-								{...register("name", { required: true })}
+								{...register("name")}
 								placeholder="Name"
 								className="contactInput w-full"
 								type="text"
+								disabled={isSubmitting}
 							/>
 							{errors.name && (
-								<p className="text-red-500 text-sm mt-1">Name is required</p>
+								<p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
 							)}
 						</div>
 						<div className="flex-1">
 							<input
-								{...register("email", {
-									required: true,
-									pattern: /^\S+@\S+$/i,
-								})}
+								{...register("email")}
 								placeholder="Email"
 								className="contactInput w-full"
 								type="email"
+								disabled={isSubmitting}
 							/>
 							{errors.email && (
-								<p className="text-red-500 text-sm mt-1">Valid email is required</p>
+								<p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
 							)}
 						</div>
 					</div>
 
 					<div>
 						<input
-							{...register("subject", { required: true })}
+							{...register("subject")}
 							placeholder="Subject"
 							className="contactInput w-full"
 							type="text"
+							disabled={isSubmitting}
 						/>
 						{errors.subject && (
-							<p className="text-red-500 text-sm mt-1">Subject is required</p>
+							<p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
 						)}
 					</div>
 
 					<div>
 						<textarea
-							{...register("message", { required: true })}
+							{...register("message")}
 							placeholder="Message"
 							className="contactInput w-full min-h-[120px]"
+							disabled={isSubmitting}
 						/>
 						{errors.message && (
-							<p className="text-red-500 text-sm mt-1">Message is required</p>
+							<p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
 						)}
 					</div>
 
 					<button
 						type="submit"
-						className="bg-[#F7AB0A] text-black font-bold text-lg py-3 px-10 rounded-md hover:bg-[#F7AB0A]/80 transition-colors duration-200"
+						disabled={isSubmitting}
+						className="bg-[#F7AB0A] text-black font-bold text-lg py-3 px-10 rounded-md 
+								 hover:bg-[#F7AB0A]/80 transition-colors duration-200
+								 disabled:opacity-50 disabled:cursor-not-allowed"
 					>
-						Submit
+						{isSubmitting ? "Sending..." : "Submit"}
 					</button>
 				</motion.form>
 			</div>
