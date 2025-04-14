@@ -29,7 +29,7 @@ const Skills = ({ skills }: Props) => {
 				</div>
 
 				<div className="section-content">
-					<div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4 md:gap-6">
+					<div className="grid grid-cols-4 gap-4 md:gap-6">
 						{/* First row */}
 						{skills?.slice(0, Math.ceil(skills.length / 2)).map((skill) => (
 							<Skill key={skill._id} skill={skill} directionLeft />
