@@ -19,7 +19,24 @@
 	}
 
 	.section-title {
-		@apply absolute top-16 sm:top-20 md:top-24 uppercase tracking-[20px] text-gray-500 text-xl sm:text-2xl;
+		@apply uppercase tracking-[20px] text-gray-500 text-2xl text-center;
+	}
+
+	.section-subtitle {
+		@apply uppercase tracking-[3px] text-gray-500 text-sm text-center mt-4;
+	}
+
+	.section-container {
+		@apply relative min-h-screen flex flex-col items-center justify-start 
+			   px-4 md:px-10 mx-auto max-w-7xl;
+	}
+
+	.section-header {
+		@apply w-full sticky top-0 bg-[rgb(36,36,36)] pt-24 pb-8 z-10;
+	}
+
+	.section-content {
+		@apply w-full flex-grow flex items-center justify-center py-8;
 	}
 }
 I html {
