@@ -23,15 +23,15 @@ const Skills = ({ skills }: Props) => {
 					</h3>
 				</div>
 
-				<motion.div className="grid grid-cols-4 gap-3 md:gap-4 w-fit max-w-[90vw] md:max-w-[600px] mt-20 px-4">
-					{skills?.slice(0, skills.length / 2).map((skill) => (
-						<Skill key={skill._id} skill={skill} />
-					))}
-
-					{skills?.slice(skills.length / 2, skills.length).map((skill) => (
-						<Skill key={skill._id} skill={skill} directionLeft />
-					))}
-				</motion.div>
+				<div className="w-full flex items-center justify-center py-10">
+					<motion.div 
+						className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-5 md:gap-7"
+					>
+						{skills?.map((skill) => (
+							<Skill key={skill._id} skill={skill} />
+						))}
+					</motion.div>
+				</div>
 			</div>
 		</>
 	)

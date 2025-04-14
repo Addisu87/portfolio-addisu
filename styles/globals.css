@@ -38,6 +38,13 @@
 	.section-content {
 		@apply w-full flex-grow flex items-center justify-center py-8;
 	}
+
+	.scrollable-content {
+		@apply max-h-[300px] md:max-h-[400px] 
+			   overflow-y-auto 
+			   scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 
+			   pr-4;
+	}
 }
 I html {
 	scroll-behavior: smooth;

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React from "react"
 import { motion } from "framer-motion"
 import { Project } from "../typings"
 import ProjectCard from "./ProjectCard"
@@ -9,40 +9,29 @@ type Props = {
 }
 
 const Projects = ({ projects }: Props) => {
-	// Memoize the projects to prevent unnecessary re-renders
-	const projectsList = useMemo(
-		() =>
-			projects?.map((project, i) => (
-				<div
-					key={project._id}
-					className="snap-center flex-shrink-0 flex items-center justify-center w-[95vw] md:w-[600px] mt-16"
-				>
-					<ProjectCard project={project} index={i} total={projects.length} />
-				</div>
-			)),
-		[projects],
-	)
-
 	return (
 		<>
 			<Head>
 				<title>My Projects | Portfolio</title>
 				<meta name="description" content="View my latest projects and work" />
 			</Head>
-			<motion.div
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				transition={{ duration: 1.5 }}
-				viewport={{ once: true }} // Add this to prevent re-animation on scroll
-				className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center"
-			>
-				<h3 className="section-title">Projects</h3>
-
-				<div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
-					<div className="flex space-x-8 p-5 md:p-10 mt-4">{projectsList}</div>
+			<motion.div className="section-container">
+				<div className="section-header">
+					<h3 className="section-title">Projects</h3>
 				</div>
 
-				<div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
+				<div className="w-full">
+					<div className="flex space-x-8 p-5 md:p-10 overflow-x-scroll scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+						{projects?.map((project, i) => (
+							<ProjectCard 
+								key={project._id} 
+								project={project} 
+								index={i} 
+								total={projects.length} 
+							/>
+						))}
+					</div>
+				</div>
 			</motion.div>
 		</>
 	)
