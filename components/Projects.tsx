@@ -2,6 +2,7 @@ import React, { useMemo } from "react"
 import { motion } from "framer-motion"
 import { Project } from "../typings"
 import ProjectCard from "./ProjectCard"
+import Head from "next/head"
 
 type Props = {
 	projects: Project[]
@@ -23,21 +24,27 @@ const Projects = ({ projects }: Props) => {
 	)
 
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			whileInView={{ opacity: 1 }}
-			transition={{ duration: 1.5 }}
-			viewport={{ once: true }} // Add this to prevent re-animation on scroll
-			className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center"
-		>
-			<h3 className="section-title">Projects</h3>
+		<>
+			<Head>
+				<title>My Projects | Portfolio</title>
+				<meta name="description" content="View my latest projects and work" />
+			</Head>
+			<motion.div
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				transition={{ duration: 1.5 }}
+				viewport={{ once: true }} // Add this to prevent re-animation on scroll
+				className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center"
+			>
+				<h3 className="section-title">Projects</h3>
 
-			<div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
-				<div className="flex space-x-8 p-5 md:p-10 mt-4">{projectsList}</div>
-			</div>
+				<div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+					<div className="flex space-x-8 p-5 md:p-10 mt-4">{projectsList}</div>
+				</div>
 
-			<div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
-		</motion.div>
+				<div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
+			</motion.div>
+		</>
 	)
 }
 

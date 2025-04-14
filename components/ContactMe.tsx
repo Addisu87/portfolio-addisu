@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/outline"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -86,111 +87,117 @@ ${formData.name}
 	}
 
 	return (
-		<div className="h-screen relative flex flex-col text-center md:text-left max-w-7xl px-4 md:px-10 mx-auto items-center justify-center">
-			<h3 className="section-title">Contact</h3>
+		<>
+			<Head>
+				<title>Contact Me | Portfolio</title>
+				<meta name="description" content="Get in touch with me for opportunities and collaborations" />
+			</Head>
+			<div className="h-screen relative flex flex-col text-center md:text-left max-w-7xl px-4 md:px-10 mx-auto items-center justify-center">
+				<h3 className="section-title">Contact</h3>
 
-			<h4 className="absolute top-28 sm:top-32 md:top-36 uppercase tracking-[3px] text-gray-500 text-sm">
-				Let&apos;s discuss your next project
-			</h4>
+				<h4 className="absolute top-28 sm:top-32 md:top-36 uppercase tracking-[3px] text-gray-500 text-sm">
+					Let&apos;s discuss your next project
+				</h4>
 
-			<div className="flex flex-col space-y-6 w-full max-w-2xl mt-20 sm:mt-24 md:mt-32">
-				{/* Contact Info Section */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8 }}
-					viewport={{ once: true }}
-					className="space-y-4"
-				>
-					<div className="flex items-center justify-center space-x-5">
-						<PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-						<p className="text-lg">+251-912912144</p>
-					</div>
+				<div className="flex flex-col space-y-6 w-full max-w-2xl mt-20 sm:mt-24 md:mt-32">
+					{/* Contact Info Section */}
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8 }}
+						viewport={{ once: true }}
+						className="space-y-4"
+					>
+						<div className="flex items-center justify-center space-x-5">
+							<PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+							<p className="text-lg">+251-912912144</p>
+						</div>
 
-					<div className="flex items-center justify-center space-x-5">
-						<EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-						<p className="text-lg">addisuhaile87@gmail.com</p>
-					</div>
+						<div className="flex items-center justify-center space-x-5">
+							<EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+							<p className="text-lg">addisuhaile87@gmail.com</p>
+						</div>
 
-					<div className="flex items-center justify-center space-x-5">
-						<MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-						<p className="text-lg">Addis Ababa, Ethiopia</p>
-					</div>
-				</motion.div>
+						<div className="flex items-center justify-center space-x-5">
+							<MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+							<p className="text-lg">Addis Ababa, Ethiopia</p>
+						</div>
+					</motion.div>
 
-				{/* Contact Form */}
-				<motion.form
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, delay: 0.2 }}
-					viewport={{ once: true }}
-					onSubmit={handleSubmit(onSubmit)}
-					className="flex flex-col space-y-4 w-full"
-				>
-					<div className="flex flex-col md:flex-row gap-4">
-						<div className="flex-1">
+					{/* Contact Form */}
+					<motion.form
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, delay: 0.2 }}
+						viewport={{ once: true }}
+						onSubmit={handleSubmit(onSubmit)}
+						className="flex flex-col space-y-4 w-full"
+					>
+						<div className="flex flex-col md:flex-row gap-4">
+							<div className="flex-1">
+								<input
+									{...register("name")}
+									placeholder="Name"
+									className="contactInput w-full"
+									type="text"
+									disabled={isSubmitting}
+								/>
+								{errors.name && (
+									<p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+								)}
+							</div>
+							<div className="flex-1">
+								<input
+									{...register("email")}
+									placeholder="Email"
+									className="contactInput w-full"
+									type="email"
+									disabled={isSubmitting}
+								/>
+								{errors.email && (
+									<p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+								)}
+							</div>
+						</div>
+
+						<div>
 							<input
-								{...register("name")}
-								placeholder="Name"
+								{...register("subject")}
+								placeholder="Subject"
 								className="contactInput w-full"
 								type="text"
 								disabled={isSubmitting}
 							/>
-							{errors.name && (
-								<p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+							{errors.subject && (
+								<p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
 							)}
 						</div>
-						<div className="flex-1">
-							<input
-								{...register("email")}
-								placeholder="Email"
-								className="contactInput w-full"
-								type="email"
+
+						<div>
+							<textarea
+								{...register("message")}
+								placeholder="Message"
+								className="contactInput w-full min-h-[120px]"
 								disabled={isSubmitting}
 							/>
-							{errors.email && (
-								<p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+							{errors.message && (
+								<p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
 							)}
 						</div>
-					</div>
 
-					<div>
-						<input
-							{...register("subject")}
-							placeholder="Subject"
-							className="contactInput w-full"
-							type="text"
+						<button
+							type="submit"
 							disabled={isSubmitting}
-						/>
-						{errors.subject && (
-							<p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
-						)}
-					</div>
-
-					<div>
-						<textarea
-							{...register("message")}
-							placeholder="Message"
-							className="contactInput w-full min-h-[120px]"
-							disabled={isSubmitting}
-						/>
-						{errors.message && (
-							<p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-						)}
-					</div>
-
-					<button
-						type="submit"
-						disabled={isSubmitting}
-						className="bg-[#F7AB0A] text-black font-bold text-lg py-3 px-10 rounded-md 
-								 hover:bg-[#F7AB0A]/80 transition-colors duration-200
-								 disabled:opacity-50 disabled:cursor-not-allowed"
-					>
-						{isSubmitting ? "Sending..." : "Submit"}
-					</button>
-				</motion.form>
+							className="bg-[#F7AB0A] text-black font-bold text-lg py-3 px-10 rounded-md 
+									 hover:bg-[#F7AB0A]/80 transition-colors duration-200
+									 disabled:opacity-50 disabled:cursor-not-allowed"
+						>
+							{isSubmitting ? "Sending..." : "Submit"}
+						</button>
+					</motion.form>
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

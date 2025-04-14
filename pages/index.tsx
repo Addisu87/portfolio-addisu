@@ -26,51 +26,53 @@ type Props = {
 
 const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 	return (
-		<div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin">
+		<>
 			<Head>
-				<title>{pageInfo?.name || "Portfolio"} portfolio</title>
+				<title>{pageInfo?.name || "Portfolio"} - Home</title>
+				<meta name="description" content="Welcome to my portfolio website" />
 			</Head>
+			<div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin">
+				<Header socials={socials || []} />
 
-			<Header socials={socials || []} />
+				<div className="space-y-16 sm:space-y-24 md:space-y-32">
+					<section id="hero" className="snap-start h-screen">
+						<Hero pageInfo={pageInfo} />
+					</section>
 
-			<div className="space-y-16 sm:space-y-24 md:space-y-32">
-				<section id="hero" className="snap-start h-screen">
-					<Hero pageInfo={pageInfo} />
-				</section>
+					<section id="about" className="snap-center min-h-screen">
+						<About pageInfo={pageInfo} />
+					</section>
 
-				<section id="about" className="snap-center min-h-screen">
-					<About pageInfo={pageInfo} />
-				</section>
+					<section id="experience" className="snap-center min-h-screen">
+						<WorkExperience experiences={experiences || []} />
+					</section>
 
-				<section id="experience" className="snap-center min-h-screen">
-					<WorkExperience experiences={experiences || []} />
-				</section>
+					<section id="skills" className="snap-center min-h-screen">
+						<Skills skills={skills || []} />
+					</section>
 
-				<section id="skills" className="snap-center min-h-screen">
-					<Skills skills={skills || []} />
-				</section>
+					<section id="projects" className="snap-center min-h-screen">
+						<Projects projects={projects || []} />
+					</section>
 
-				<section id="projects" className="snap-center min-h-screen">
-					<Projects projects={projects || []} />
-				</section>
+					<section id="contact" className="snap-start min-h-screen">
+						<ContactMe />
+					</section>
+				</div>
 
-				<section id="contact" className="snap-start min-h-screen">
-					<ContactMe />
-				</section>
+				<Link href="#hero">
+					<footer className="sticky bottom-5 w-full cursor-pointer">
+						<div className="flex items-center justify-end px-10">
+							<HomeModernIcon
+								className="h-7 w-7 animate-pulse 
+								filter grayscale hover:grayscale-0 
+								cursor-pointer"
+							/>
+						</div>
+					</footer>
+				</Link>
 			</div>
-
-			<Link href="#hero">
-				<footer className="sticky bottom-5 w-full cursor-pointer">
-					<div className="flex items-center justify-end px-10">
-						<HomeModernIcon
-							className="h-7 w-7 animate-pulse 
-							filter grayscale hover:grayscale-0 
-							cursor-pointer"
-						/>
-					</div>
-				</footer>
-			</Link>
-		</div>
+		</>
 	)
 }
 
