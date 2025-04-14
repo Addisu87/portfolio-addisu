@@ -15,24 +15,32 @@ const Skills = ({ skills }: Props) => {
 				<title>My Skills | Portfolio</title>
 				<meta name="description" content="Explore my technical skills and expertise" />
 			</Head>
-			<div className="section-container">
+			<motion.div
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				transition={{ duration: 1.5 }}
+				className="section-container"
+			>
 				<div className="section-header">
 					<h3 className="section-title">Skills</h3>
 					<h3 className="section-subtitle">
-						Hover over or tap a skill for current proficiency
+						Hover over a skill for current proficiency
 					</h3>
 				</div>
 
-				<div className="w-full flex items-center justify-center py-10">
-					<motion.div 
-						className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-5 md:gap-7"
-					>
-						{skills?.map((skill) => (
+				<div className="section-content">
+					<div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4 md:gap-6">
+						{/* First row */}
+						{skills?.slice(0, Math.ceil(skills.length / 2)).map((skill) => (
+							<Skill key={skill._id} skill={skill} directionLeft />
+						))}
+						{/* Second row */}
+						{skills?.slice(Math.ceil(skills.length / 2), skills.length).map((skill) => (
 							<Skill key={skill._id} skill={skill} />
 						))}
-					</motion.div>
+					</div>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	)
 }
