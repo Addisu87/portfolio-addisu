@@ -53,9 +53,13 @@ const About = ({ pageInfo }: Props) => {
 							Here&apos;s my{" "}
 							<span className="underline decoration-[#F7AB0A]/50">background</span>
 						</h4>
-						<p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
-							{pageInfo?.backgroundInformation}
-						</p>
+						<div className="max-h-[300px] md:max-h-[400px] overflow-y-auto 
+									scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80
+									pr-4">
+							<p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
+								{pageInfo?.backgroundInformation}
+							</p>
+						</div>
 					</motion.div>
 				</div>
 			</motion.div>
