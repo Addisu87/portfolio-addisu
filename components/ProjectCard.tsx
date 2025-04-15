@@ -69,11 +69,10 @@ const ProjectCard = ({ project, index, total }: Props) => {
 	)
 
 	return (
-		<article className="flex flex-col rounded-lg items-center w-full max-w-[95vw] md:max-w-[600px] h-[450px] md:h-[500px] snap-center bg-[#292929] hover:bg-[#313131] transition-all duration-200 overflow-hidden flex-shrink-0">
+		<article className="flex flex-col rounded-lg items-center flex-shrink-0 snap-center w-[300px] md:w-[600px] h-[500px] md:h-[600px] bg-[#292929] hover:bg-[#313131] transition-all duration-200  overflow-hidden p-5 md:p-8">
 			{/* Header Section */}
-			<div className="relative w-full px-5 md:px-8 py-2 md:py-3 bg-[#1f1f1f] border-b border-gray-700">
-				{/* Title and Project Number */}
-				<div className="flex items-center justify-between mb-4">
+			<div className="relative w-full bg-[#1f1f1f] rounded-t-lg border-b border-gray-700 mb-4">
+				<div className="flex items-center justify-between p-4">
 					<h4 className="text-2xl md:text-3xl font-bold text-[#F7AB0A]">
 						{project?.title}
 					</h4>
@@ -81,43 +80,36 @@ const ProjectCard = ({ project, index, total }: Props) => {
 						{index + 1} of {total}
 					</span>
 				</div>
-
-				{/* Tech Stack and Links Row */}
-				<div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-					{/* Tech Stack */}
-					<div className="flex flex-wrap gap-3">{technologies}</div>
-
-					{projectLinks}
-				</div>
+				<div className="flex gap-2 px-4 pb-4 overflow-x-auto">{technologies}</div>
 			</div>
 
-			{/* Content Section */}
-			<div className="px-5 md:px-8 py-2 flex-1 w-full overflow-y-auto">
-				{/* Project Image */}
-				<motion.div
-					initial={{ y: -20, opacity: 0 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 1.2 }}
-					viewport={{ once: true }}
-					className="relative w-full h-[220px] md:h-[280px] mb-2"
-				>
-					{imageUrl && (
-						<Image
-							src={imageUrl}
-							alt={project?.title || "Project Image"}
-							fill
-							className="rounded-lg object-contain bg-[#1f1f1f]"
-							sizes="(max-width: 768px) 95vw, 600px"
-							loading="lazy"
-							quality={75}
-						/>
-					)}
-				</motion.div>
+			{/* Project Image */}
+			<motion.div
+				initial={{ y: -20, opacity: 0 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 1.2 }}
+				viewport={{ once: true }}
+				className="relative w-full h-[200px] md:h-[300px] mb-4"
+			>
+				{imageUrl && (
+					<Image
+						src={imageUrl}
+						alt={project?.title || "Project Image"}
+						fill
+						className="rounded-lg object-cover bg-[#1f1f1f]"
+						sizes="(max-width: 768px) 300px, 600px"
+						loading="lazy"
+						quality={75}
+					/>
+				)}
+			</motion.div>
 
-				{/* Project Summary */}
-				<p className="text-sm md:text-base text-gray-300 leading-relaxed">
+			{/* Project Summary */}
+			<div className="flex-grow">
+				<p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4">
 					{project?.summary}
 				</p>
+				{projectLinks}
 			</div>
 		</article>
 	)

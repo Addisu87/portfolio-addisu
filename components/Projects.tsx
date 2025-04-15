@@ -23,11 +23,11 @@ const Projects = ({ projects }: Props) => {
 				<div className="w-full">
 					<div className="flex space-x-8 p-5 md:p-10 overflow-x-scroll scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
 						{projects?.map((project, i) => (
-							<ProjectCard 
-								key={project._id} 
-								project={project} 
-								index={i} 
-								total={projects.length} 
+							<ProjectCard
+								key={project._id}
+								project={project}
+								index={i}
+								total={projects.length}
 							/>
 						))}
 					</div>
